@@ -1,12 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, Alert, Share, Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ViewContainer } from '../../shared/components/Container/styles';
 import { Card } from '../../shared/components/Card/Card';
+import { palette } from '../../shared/colors/palette';
 
 export const Favorites = ({ navigation }) => {
   const [phrases, setPhrases] = useState([]);
   const [phraseIds, setPhraseIds] = useState([]);
+
+  const onShare = async (sharedMessage) => {
+    try {
+      const result = await Share.share({
+        message: sharedMessage,
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      Alert.alert(error.message);
+    }
+  };
 
   const getDataPhrases = async () => {
     try {
@@ -53,8 +73,16 @@ export const Favorites = ({ navigation }) => {
     <ViewContainer centered>
       <ScrollView>
         {phrases.map((phraseGroup, index) => (
-          <View style={{marginTop: 15}} key={index}>
-            <Card title="Frase do dia:" frase={phraseGroup.frase} deleteScreen deleteItem={() => deleteItem(index)} />
+          <View key={index} style={{ marginTop: 15 }}>
+            <Card
+              color="primary"
+              title="Frase do dia:"
+              frase={phraseGroup.frase}
+              deleteScreen
+              deleteItem={() => deleteItem(index)}
+              share={() => onShare(phraseGroup.frase)}
+            />
+            
           </View>
         ))}
       </ScrollView>

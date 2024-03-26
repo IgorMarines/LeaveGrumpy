@@ -4,22 +4,33 @@ import { Button } from "../Button/Button";
 
 import { Text } from "../Text/Text";
 
-export const Card = ({ title, frase, saveScreen, saveItem, deleteScreen, deleteItem }) => {
+import { palette } from "../../colors/palette";
+import { View } from "react-native";
+
+export const Card = ({ title, frase, saveScreen, saveItem, deleteScreen, deleteItem, share }) => {
 
   return (
     <StyledCard>
       <TextTitle>{title}</TextTitle>
       <TextCard>{frase}</TextCard>
-      {saveScreen && (
-        <Button primary onPress={saveItem}>
-          <Text>Salvar</Text>
-        </Button>
-      )}
-      {deleteScreen && (
-        <Button primary onPress={deleteItem}>
-          <Text>Deletar</Text>
-        </Button>
-      )}
+      <Button primary onPress={share}>
+        <Text>Compartilhar</Text>
+      </Button>
+      <View style={{ display: 'flex' }}>
+        {saveScreen && (
+          <Button primary onPress={saveItem}>
+            <Text>Salvar</Text>
+          </Button>
+        )}
+        {deleteScreen && (
+          <Button primary onPress={deleteItem}>
+            <Text>Deletar</Text>
+          </Button>
+        )}
+
+
+
+      </View>
 
     </StyledCard>
   );
@@ -31,7 +42,7 @@ export const StyledCard = styled.View`
   align-items: center;
   
 
-  background-color: ${(color) => color.primary ? '#4F46E5' : color.secondary ? '#F72585' : '#5552CA'};
+  background-color: ${palette.blue_primary};
   shadow-color: #000;
 
   width: 300px;
@@ -52,7 +63,9 @@ export const TextCard = styled.Text`
 `;
 
 export const TextTitle = styled.Text`
-  color: #fff;
+  color: ${palette.blue_primary};
   font-size: 32px;
-
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
 `;

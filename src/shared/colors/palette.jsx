@@ -1,10 +1,10 @@
 export const palette = {
-    blue_primary: '#BE6731',
-    blue_secondary: '#b55115',
-    blue_tertiary: '#8d2800',
+    blue_primary: '#19255a',
+    blue_secondary: '#4f4898',
+    blue_tertiary: '#6f78b8',
 
-    green_primary: '#76704C',
+    green_primary: '#33889e',
 
-    orange_primary: "545e45",
-    orange_secondary: "#1f2d16"
+    orange_primary: "#ef7911",
+    orange_secondary: "#f07e2d"
 }

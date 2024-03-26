@@ -68,7 +68,9 @@ export const Login = ({ navigation }) => {
   return (
     <ViewContainer centered>
       <ViewTextsLogin>
-        <TextLogin primary>Login</TextLogin>
+        <TextLogin primary style={{ backgroundColor: '#19255a', width: '90%', borderRadius: 5, color: '#fff', paddingLeft: '30%', padding: 15, textAlign: 'center'}}>
+          <Text>Login</Text>
+        </TextLogin>
         <Input
           placeholder="Digite seu email"
           value={email}
