@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { View, ScrollView, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import house from '../../images/house.png';
-import star from '../../images/star.png';
+import home from '../../images/icon-home.png';
+import star from '../../images/star-icon.png'; 
 import menu_open from '../../images/menu-burger-open.svg';
 import menu_close from '../../images/menu-burger-close.svg';
-import logout from '../../images/logout.png';
+import logout from '../../images/logout-icon.png';
 import {palette} from '../../shared/colors/palette'
 
 const SideBar = ({ navigation }) => {
@@ -49,27 +49,27 @@ const SideBar = ({ navigation }) => {
       contentContainerStyle={styles.container}
       style={{ backgroundColor: palette.blue_primary, width: '100%' }}
     >
-      <TouchableOpacity onPress={() => setIsSidebarOpen(!isSidebarOpen)} style={{paddingLeft: 20}}>
+      <TouchableOpacity onPress={() => setIsSidebarOpen(!isSidebarOpen)} style={{paddingLeft: 20,}}>
         <Text>
           <Image style={{ width: 25, height: 25, marginRight: 10 }} source={isSidebarOpen ? menu_close : menu_open} />
         </Text>
       </TouchableOpacity>
       {
         isSidebarOpen && (
-          <>
+          <View style={{ width: '100%', height: '100vh' }}>
             <TouchableOpacity style={styles.button} onPress={navigateToHome}>
-              <Image style={{ width: 15, height: 15, marginRight: 10 }} source={house} alt="Ícone da página de home" />
+              <Image style={{  width: 20, height: 20, marginRight: 15, marginTop: 10, }} source={home} alt="Ícone da página de home" />
               <Text style={styles.buttonText}>Home</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={navigateToFavorites}>
-              <Image style={{ width: 15, height: 15, marginRight: 10 }} source={star} alt="Ícone da página de favoritos" />
+              <Image style={{ width: 20, height: 20, marginRight: 15 }} source={star} alt="Ícone da página de favoritos" />
               <Text style={styles.buttonText}>Favorites</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={handleLogout}>
-              <Image style={{ width: 15, height: 15, marginRight: 10 }} source={logout} alt="Ícone da página de logout" />
+              <Image style={{ width: 20, height: 20, marginRight: 15 }} source={logout} alt="Ícone da página de logout" />
               <Text style={styles.buttonText}>Logout</Text>
             </TouchableOpacity>
-          </>
+          </View>
         )
       }
 
@@ -79,28 +79,29 @@ const SideBar = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
+    // alignItems: 'center',
     justifyContent: 'space-between',
     paddingVertical: 10,
-    width: '80%'
+    width: '100%',
+    zIndex: 1,
   },
   button: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'white', // Cor da borda
-    backgroundColor: 'white',
+    // borderWidth: 1,
+    // borderColor: 'white', // Cor da borda
+    // backgroundColor: 'white',
     
-    paddingHorizontal: 20,
+    paddingHorizontal: 18,
     paddingVertical: 10,
     borderRadius: 10,
-    marginLeft: 5,
-    marginRight: 5,
+    // marginLeft: 0,
+    // marginRight: 105,
   },
   buttonText: {
-    color: palette.blue_primary,
-    fontSize: 16,
+    color: '#fff',
+    fontSize: 20,
     fontWeight: 'bold',
   },
 });
