@@ -75,7 +75,7 @@ export const Home = ({ navigation }) => {
   };
 
   return (
-    <ViewContainer centered>
+    <ViewContainer secondary centered>
       <Text style={styles.welcomeText}>
         <Text style={{fontSize: 16, textAlign: 'center'}}>Olá, Bem-vindo ao <b style={{color: '#fafafa', fontWeight: 'bolder'}}>Leave Grumpy</b></Text>
         <hr />

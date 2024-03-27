@@ -66,9 +66,9 @@ export const Login = ({ navigation }) => {
   }, []);
 
   return (
-    <ViewContainer centered>
+    <ViewContainer primary centered>
       <ViewTextsLogin>
-        <TextLogin primary style={{ backgroundColor: '#19255a', width: '90%', borderRadius: 5, color: '#fff', paddingLeft: '30%', padding: 15, textAlign: 'center'}}>
+        <TextLogin primary style={{ width: '90%', borderRadius: 5, color: '#fff', paddingLeft: '30%', padding: 15, textAlign: 'center'}}>
           <Text>Login</Text>
         </TextLogin>
         <Input

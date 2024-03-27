@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import { palette } from '../../colors/palette'
 
 export const Button = styled.TouchableOpacity`
     display: flex;
@@ -10,7 +11,7 @@ export const Button = styled.TouchableOpacity`
     flex-direction: colum;
     justify-content: center;
 
-    background-color: ${(props) => (props.primary ? '#3730A3' : '#fff')};
+    background-color: ${(props) => (props.primary ? palette.blue_secondary : '#fff')};
     color: #fff; 
 
     border: none;

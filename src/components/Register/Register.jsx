@@ -46,7 +46,7 @@ export const Register = ({navigation}) => {
   };
 
   return (
-    <ViewContainer centered>
+    <ViewContainer primary centered>
       <ViewTexts>
         <TextRegister primary >Cadastre-se</TextRegister>
         <Input
