@@ -63,9 +63,8 @@ export const TextCard = styled.Text`
 `;
 
 export const TextTitle = styled.Text`
-  color: ${palette.blue_primary};
+  color: white;
   font-size: 32px;
-  background: white;
   padding: 15px;
   border-radius: 5px;
 `;
