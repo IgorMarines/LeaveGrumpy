@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import { palette } from '../../colors/palette'
 
 export const Input = styled.TextInput`
 
@@ -10,7 +11,7 @@ export const Input = styled.TextInput`
     color: white;
     padding-left: 10px; 
 
-    background-color: #6366F1;
+    background-color: ${palette.blue_tertiary};
 
     placeholder-text-color: white;
 
